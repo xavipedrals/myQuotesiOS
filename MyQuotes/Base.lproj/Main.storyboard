@@ -73,7 +73,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="authorLabel" destination="O22-D6-tmw" id="Mff-OL-d6t"/>
                                             <outlet property="backgroundImage" destination="pEK-Da-qwH" id="S32-on-pCs"/>
+                                            <outlet property="quoteLabel" destination="c5d-00-W0o" id="wbQ-YQ-MRX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -101,7 +103,7 @@
             </objects>
             <point key="canvasLocation" x="272" y="159"/>
         </scene>
-        <!--New Quotes-->
+        <!--Single Quote View Controller-->
         <scene sceneID="Yes-Ot-7J3">
             <objects>
                 <viewController id="76Q-LE-b1t" customClass="SingleQuoteViewController" customModule="MyQuotes" customModuleProvider="target" sceneMemberID="viewController">
@@ -176,7 +178,6 @@
                             <constraint firstItem="s1b-or-sVx" firstAttribute="centerX" secondItem="d0T-9y-Z6v" secondAttribute="centerX" id="h2v-CS-9lk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New Quotes" image="right176" id="EC7-0d-UCM"/>
                     <connections>
                         <outlet property="authorLabel" destination="HAG-8s-JyL" id="qeF-jn-M8G"/>
                         <outlet property="backgroundImage" destination="AWw-Ur-LNY" id="8Wn-lM-NSd"/>
@@ -207,7 +208,4 @@
             <point key="canvasLocation" x="-540" y="159"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="right176" width="640" height="434"/>
-    </resources>
 </document>

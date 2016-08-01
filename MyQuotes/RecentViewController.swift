@@ -11,9 +11,16 @@ import UIKit
 class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var quotesArray: NSMutableArray?
+    var lastSelectedIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NetworkController.getRecentQuotes(){
+            result in
+            self.quotesArray = result
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,27 +29,48 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
+        self.lastSelectedIndex = indexPath.row
         self.performSegueWithIdentifier("showRecentDetail", sender: self)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 15
+        if (self.quotesArray != nil){
+            return (self.quotesArray?.count)!
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCellWithIdentifier("recentCell")
-        return cell!
+        if let cell = tableView.dequeueReusableCellWithIdentifier("recentCell") as? RecentTableViewCell{
+            if let quoteObj = quotesArray![indexPath.row] as? Quote {
+                print("cell ---------------------")
+                print(quoteObj.author!)
+                print(quoteObj.quote!)
+                print(quoteObj.quoteBackground!)
+
+                cell.backgroundImage.kf_setImageWithURL(NSURL(string: quoteObj.quoteBackground!)!)
+                cell.authorLabel.text = quoteObj.author!
+                cell.quoteLabel.text = quoteObj.quote!
+                return cell
+            }
+        }
+        
+        return UITableViewCell()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showRecentDetail"{
+            if let detailViewController = segue.destinationViewController as? SingleQuoteViewController{
+                if let quoteObj = quotesArray![lastSelectedIndex!] as? Quote{
+                    detailViewController.quoteStr = quoteObj.quote!
+                    detailViewController.authorStr = quoteObj.author!
+                    detailViewController.backgroundImgStr = quoteObj.quoteBackground!
+                    detailViewController.authorImgStr = quoteObj.authorBackground!
+                }
+            }
+        }
     }
-    */
-
 }

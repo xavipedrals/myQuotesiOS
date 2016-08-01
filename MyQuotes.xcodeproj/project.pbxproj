@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47330CD91D4F942200B7336C /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47330CD81D4F942200B7336C /* NetworkController.swift */; };
+		47330CDB1D4F94D400B7336C /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47330CDA1D4F94D400B7336C /* Quote.swift */; };
 		47F0E2BB1D4CE66E001A0AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F0E2BA1D4CE66E001A0AF0 /* AppDelegate.swift */; };
 		47F0E2BD1D4CE66E001A0AF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F0E2BC1D4CE66E001A0AF0 /* ViewController.swift */; };
 		47F0E2C01D4CE66E001A0AF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F0E2BE1D4CE66E001A0AF0 /* Main.storyboard */; };
@@ -21,6 +23,7 @@
 		47F0E2F21D4CF544001A0AF0 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47F0E2ED1D4CF52A001A0AF0 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		47F0E2F31D4CF54A001A0AF0 /* Kingfisher.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 47F0E2EE1D4CF52A001A0AF0 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		47F0E2F51D4CF847001A0AF0 /* SingleQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F0E2F41D4CF847001A0AF0 /* SingleQuoteViewController.swift */; };
+		47FD51DE1D4F473100E411AD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47FD51DD1D4F473100E411AD /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		47330CD81D4F942200B7336C /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		47330CDA1D4F94D400B7336C /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		47F0E2B71D4CE66E001A0AF0 /* MyQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F0E2BA1D4CE66E001A0AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47F0E2BC1D4CE66E001A0AF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +78,7 @@
 		47F0E2ED1D4CF52A001A0AF0 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		47F0E2EE1D4CF52A001A0AF0 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		47F0E2F41D4CF847001A0AF0 /* SingleQuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleQuoteViewController.swift; sourceTree = "<group>"; };
+		47FD51DD1D4F473100E411AD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +139,11 @@
 				47F0E2E81D4CEC3C001A0AF0 /* RecentViewController.swift */,
 				47F0E2BE1D4CE66E001A0AF0 /* Main.storyboard */,
 				47F0E2C11D4CE66E001A0AF0 /* Assets.xcassets */,
+				47FD51DD1D4F473100E411AD /* Media.xcassets */,
 				47F0E2C31D4CE66E001A0AF0 /* LaunchScreen.storyboard */,
 				47F0E2C61D4CE66E001A0AF0 /* Info.plist */,
+				47330CD81D4F942200B7336C /* NetworkController.swift */,
+				47330CDA1D4F94D400B7336C /* Quote.swift */,
 			);
 			path = MyQuotes;
 			sourceTree = "<group>";
@@ -273,6 +282,7 @@
 			files = (
 				47F0E2C51D4CE66E001A0AF0 /* LaunchScreen.storyboard in Resources */,
 				47F0E2C21D4CE66E001A0AF0 /* Assets.xcassets in Resources */,
+				47FD51DE1D4F473100E411AD /* Media.xcassets in Resources */,
 				47F0E2C01D4CE66E001A0AF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,8 +310,10 @@
 			files = (
 				47F0E2EB1D4CEE97001A0AF0 /* RecentTableViewCell.swift in Sources */,
 				47F0E2F51D4CF847001A0AF0 /* SingleQuoteViewController.swift in Sources */,
+				47330CD91D4F942200B7336C /* NetworkController.swift in Sources */,
 				47F0E2E91D4CEC3C001A0AF0 /* RecentViewController.swift in Sources */,
 				47F0E2BD1D4CE66E001A0AF0 /* ViewController.swift in Sources */,
+				47330CDB1D4F94D400B7336C /* Quote.swift in Sources */,
 				47F0E2BB1D4CE66E001A0AF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,6 +549,7 @@
 				47F0E2E11D4CE66E001A0AF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47F0E2E21D4CE66E001A0AF0 /* Build configuration list for PBXNativeTarget "MyQuotesTests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +558,7 @@
 				47F0E2E41D4CE66E001A0AF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		47F0E2E51D4CE66E001A0AF0 /* Build configuration list for PBXNativeTarget "MyQuotesUITests" */ = {
 			isa = XCConfigurationList;
@@ -553,6 +567,7 @@
 				47F0E2E71D4CE66E001A0AF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

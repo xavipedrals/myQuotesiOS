@@ -13,9 +13,14 @@ class SingleQuoteViewController: UIViewController {
 
     @IBOutlet weak var roundImageView: UIImageView!
     @IBOutlet weak var backgroundImage: UIImageView!
-    
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    
+    var quoteStr: String?
+    var authorStr: String?
+    var backgroundImgStr: String?
+    var authorImgStr: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +29,23 @@ class SingleQuoteViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.translucent = true
         
+//        let backButtonItem = UIBarButtonItem(image: UIImage(named: "left-arrow"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+//        self.navigationItem.leftBarButtonItem = backButtonItem
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        
         roundImageView.layer.cornerRadius = roundImageView.frame.size.width / 2
         roundImageView.clipsToBounds = true
         roundImageView.layer.borderWidth = 3
         roundImageView.layer.borderColor = UIColor.whiteColor().CGColor
         
-        backgroundImage.kf_setImageWithURL(NSURL(string: "https://images.unsplash.com/photo-1422651355218-53453822ebb8?w=600&fit=max")!)
-        roundImageView.kf_setImageWithURL(NSURL(string: "https://pbs.twimg.com/profile_images/571442793/winston-churchill.jpg")!)
+        backgroundImage.kf_setImageWithURL(NSURL(string: self.backgroundImgStr!)!)
+        roundImageView.kf_setImageWithURL(NSURL(string: self.authorImgStr!)!)
+        self.authorLabel.text = self.authorStr!
+        self.quoteLabel.text = self.quoteStr!
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
 }
