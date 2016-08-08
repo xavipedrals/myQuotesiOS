@@ -24,7 +24,7 @@ class RecentTableViewCell: UITableViewCell {
         
 //        self.backgroundImage.kf_setImageWithURL(NSURL(string: "https://images.unsplash.com/photo-1422651355218-53453822ebb8?w=600&fit=max")!)
 //
-        self.backgroundImage.layer.cornerRadius = 20
+//        self.backgroundImage.layer.cornerRadius = 15
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -25,6 +25,7 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        self.title = "Recent"
         // Dispose of any resources that can be recreated.
     }
     
@@ -57,6 +58,15 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        //IPAD
+        //return screenWidth * 0.55
+        
+        //IPHONE
+        return screenWidth * 0.7
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
