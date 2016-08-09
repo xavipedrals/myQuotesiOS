@@ -16,6 +16,7 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         NetworkController.getRecentQuotes(){
             result in
             self.quotesArray = result

@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Recent View Controller-->
@@ -124,75 +123,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AWw-Ur-LNY">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="450"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C4v-RY-bZk" userLabel="filter">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="450"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s1b-or-sVx">
-                                <rect key="frame" x="250" y="375" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="HQE-JO-iWI"/>
-                                    <constraint firstAttribute="height" constant="100" id="Wsh-h1-PVR"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wiston Churchill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAG-8s-JyL">
-                                <rect key="frame" x="238" y="490" width="125" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zc8-Ya-7iv">
-                                <rect key="frame" x="393" y="490" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="5Oz-ft-8b6"/>
-                                    <constraint firstAttribute="width" constant="30" id="g82-HD-6zi"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="nextPressed:" destination="76Q-LE-b1t" eventType="touchUpInside" id="1c6-bt-pt7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p0K-2U-auJ">
-                                <rect key="frame" x="178" y="490" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="ESz-0I-TL3"/>
-                                    <constraint firstAttribute="height" constant="30" id="ldl-m3-88I"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="savePressed:" destination="76Q-LE-b1t" eventType="touchUpInside" id="emq-8s-8By"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your time is limited, so don’t waste it living someone else’s life" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="p1Y-zX-xO0">
-                                <rect key="frame" x="20" y="296" width="560" height="80"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="23"/>
+                                <rect key="frame" x="20" y="456" width="560" height="69"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTC-fP-2dC">
+                                <rect key="frame" x="175" y="525" width="250" height="75"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s1b-or-sVx">
+                                        <rect key="frame" x="30" y="13" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="HQE-JO-iWI"/>
+                                            <constraint firstAttribute="height" constant="50" id="Wsh-h1-PVR"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wiston Churchill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAG-8s-JyL">
+                                        <rect key="frame" x="95" y="27" width="125" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="s1b-or-sVx" firstAttribute="centerY" secondItem="fTC-fP-2dC" secondAttribute="centerY" id="11p-ba-TQ5"/>
+                                    <constraint firstItem="s1b-or-sVx" firstAttribute="leading" secondItem="fTC-fP-2dC" secondAttribute="leading" constant="30" id="Jtu-Qp-PSu"/>
+                                    <constraint firstItem="HAG-8s-JyL" firstAttribute="centerY" secondItem="fTC-fP-2dC" secondAttribute="centerY" id="Yc1-Jz-jSh"/>
+                                    <constraint firstItem="HAG-8s-JyL" firstAttribute="leading" secondItem="s1b-or-sVx" secondAttribute="trailing" constant="15" id="ZFs-7E-1Lj"/>
+                                    <constraint firstAttribute="trailing" secondItem="HAG-8s-JyL" secondAttribute="trailing" constant="30" id="hJC-Rm-NzP"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="p1Y-zX-xO0" firstAttribute="trailing" secondItem="AWw-Ur-LNY" secondAttribute="trailing" constant="-20" id="1vX-mM-TFR"/>
-                            <constraint firstItem="zc8-Ya-7iv" firstAttribute="top" secondItem="s1b-or-sVx" secondAttribute="bottom" constant="15" id="52C-q8-mDu"/>
                             <constraint firstItem="p1Y-zX-xO0" firstAttribute="baseline" secondItem="AWw-Ur-LNY" secondAttribute="baseline" constant="-80" id="7JT-Jf-rBv"/>
                             <constraint firstItem="AWw-Ur-LNY" firstAttribute="width" secondItem="d0T-9y-Z6v" secondAttribute="width" id="8gL-gP-FC7"/>
                             <constraint firstItem="p1Y-zX-xO0" firstAttribute="leading" secondItem="AWw-Ur-LNY" secondAttribute="leading" constant="20" id="A4c-sp-UnY"/>
-                            <constraint firstItem="HAG-8s-JyL" firstAttribute="leading" secondItem="p0K-2U-auJ" secondAttribute="trailing" constant="30" id="Bge-CG-lfD"/>
                             <constraint firstItem="AWw-Ur-LNY" firstAttribute="centerX" secondItem="d0T-9y-Z6v" secondAttribute="centerX" id="BvT-UZ-nxv"/>
-                            <constraint firstItem="p0K-2U-auJ" firstAttribute="top" secondItem="s1b-or-sVx" secondAttribute="bottom" constant="15" id="EFu-0f-k6K"/>
-                            <constraint firstItem="zc8-Ya-7iv" firstAttribute="leading" secondItem="HAG-8s-JyL" secondAttribute="trailing" constant="30" id="FTZ-aa-NFt"/>
-                            <constraint firstItem="AWw-Ur-LNY" firstAttribute="height" secondItem="d0T-9y-Z6v" secondAttribute="height" multiplier="1.5/2" id="Ofa-oT-vzs"/>
+                            <constraint firstItem="fTC-fP-2dC" firstAttribute="bottom" secondItem="AWw-Ur-LNY" secondAttribute="bottom" id="Mdg-ox-iGV"/>
+                            <constraint firstItem="AWw-Ur-LNY" firstAttribute="height" secondItem="d0T-9y-Z6v" secondAttribute="height" id="Ofa-oT-vzs"/>
                             <constraint firstItem="AWw-Ur-LNY" firstAttribute="top" secondItem="d0T-9y-Z6v" secondAttribute="topMargin" id="Ptj-OR-Imc"/>
-                            <constraint firstItem="s1b-or-sVx" firstAttribute="top" secondItem="AWw-Ur-LNY" secondAttribute="bottom" constant="-75" id="SvN-Li-ceY"/>
                             <constraint firstItem="C4v-RY-bZk" firstAttribute="centerX" secondItem="AWw-Ur-LNY" secondAttribute="centerX" id="Uxe-ou-GYi"/>
-                            <constraint firstItem="HAG-8s-JyL" firstAttribute="centerX" secondItem="d0T-9y-Z6v" secondAttribute="centerX" id="Vfd-Um-l05"/>
                             <constraint firstItem="C4v-RY-bZk" firstAttribute="centerY" secondItem="AWw-Ur-LNY" secondAttribute="centerY" id="XS3-Kf-ySl"/>
+                            <constraint firstItem="p1Y-zX-xO0" firstAttribute="bottom" secondItem="fTC-fP-2dC" secondAttribute="top" id="aYI-Ti-4Ck"/>
                             <constraint firstItem="C4v-RY-bZk" firstAttribute="height" secondItem="AWw-Ur-LNY" secondAttribute="height" id="cjp-av-xfA"/>
-                            <constraint firstItem="HAG-8s-JyL" firstAttribute="top" secondItem="s1b-or-sVx" secondAttribute="bottom" constant="15" id="d6V-N6-2VT"/>
-                            <constraint firstItem="s1b-or-sVx" firstAttribute="centerX" secondItem="d0T-9y-Z6v" secondAttribute="centerX" id="h2v-CS-9lk"/>
                             <constraint firstItem="C4v-RY-bZk" firstAttribute="width" secondItem="AWw-Ur-LNY" secondAttribute="width" id="qjJ-yn-TqE"/>
+                            <constraint firstItem="fTC-fP-2dC" firstAttribute="centerX" secondItem="AWw-Ur-LNY" secondAttribute="centerX" id="wBr-wO-Mzz"/>
                         </constraints>
                     </view>
                     <connections>

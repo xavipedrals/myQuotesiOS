@@ -36,7 +36,7 @@ class SingleQuoteViewController: UIViewController {
         
         roundImageView.layer.cornerRadius = roundImageView.frame.size.width / 2
         roundImageView.clipsToBounds = true
-        roundImageView.layer.borderWidth = 3
+        roundImageView.layer.borderWidth = 2
         roundImageView.layer.borderColor = UIColor.whiteColor().CGColor
         
         backgroundImage.kf_setImageWithURL(NSURL(string: self.backgroundImgStr!)!)
