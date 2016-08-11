@@ -36,7 +36,7 @@ class SingleQuoteViewController: UIViewController {
         
         roundImageView.layer.cornerRadius = roundImageView.frame.size.width / 2
         roundImageView.clipsToBounds = true
-        roundImageView.layer.borderWidth = 2
+        roundImageView.layer.borderWidth = 1
         roundImageView.layer.borderColor = UIColor.whiteColor().CGColor
         
         backgroundImage.kf_setImageWithURL(NSURL(string: self.backgroundImgStr!)!)
@@ -48,4 +48,9 @@ class SingleQuoteViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
 }

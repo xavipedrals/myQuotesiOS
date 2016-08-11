@@ -13,14 +13,19 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     var quotesArray: NSMutableArray?
     var lastSelectedIndex: Int?
+    var heightAtIndexPath: NSMutableDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+//        self.tableView.estimatedRowHeight = 300
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.heightAtIndexPath = NSMutableDictionary()
         NetworkController.getRecentQuotes(){
             result in
             self.quotesArray = result
             self.tableView.reloadData()
+//            self.tableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, self.tableView.numberOfSections)), withRowAnimation: .None)
         }
     }
 
@@ -36,6 +41,20 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.performSegueWithIdentifier("showRecentDetail", sender: self)
     }
     
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let height = self.heightAtIndexPath.objectForKey(indexPath)
+        if ((height) != nil) {
+            return CGFloat(height!.floatValue)
+        } else {
+            return UITableViewAutomaticDimension
+        }
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let height = cell.frame.size.height
+        self.heightAtIndexPath.setObject(height, forKey: indexPath)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if (self.quotesArray != nil){
             return (self.quotesArray?.count)!
@@ -46,14 +65,13 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         if let cell = tableView.dequeueReusableCellWithIdentifier("recentCell") as? RecentTableViewCell{
             if let quoteObj = quotesArray![indexPath.row] as? Quote {
-                print("cell ---------------------")
-                print(quoteObj.author!)
-                print(quoteObj.quote!)
-                print(quoteObj.quoteBackground!)
 
                 cell.backgroundImage.kf_setImageWithURL(NSURL(string: quoteObj.quoteBackground!)!)
                 cell.authorLabel.text = quoteObj.author!
                 cell.quoteLabel.text = quoteObj.quote!
+                cell.likeImageView.image = UIImage(named: "like")
+                cell.userHasLiked = true
+                
                 return cell
             }
         }
@@ -62,12 +80,12 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let screenWidth = UIScreen.mainScreen().bounds.width
+        let screenHeight = UIScreen.mainScreen().bounds.height
         //IPAD
         //return screenWidth * 0.55
         
         //IPHONE
-        return screenWidth * 0.7
+        return screenHeight * 0.47
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
