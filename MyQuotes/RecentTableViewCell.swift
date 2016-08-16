@@ -41,12 +41,19 @@ class RecentTableViewCell: UITableViewCell {
 
     @IBAction func likePressed(sender: AnyObject) {
         if (self.userHasLiked!){
-            likeImageView.image = UIImage(named: "line-like")
+            self.likeImageView.image = UIImage(named: "like")
             self.userHasLiked = false
+            var likeCount = Int(self.likeLabel.text!)!
+            likeCount -= 1
+            self.likeLabel.text = String(likeCount)
+            
         }
         else {
-            likeImageView.image = UIImage(named: "like")
+            self.likeImageView.image = UIImage(named: "like-red")
             self.userHasLiked = true
+            var likeCount = Int(self.likeLabel.text!)!
+            likeCount += 1
+            self.likeLabel.text = String(likeCount)
         }
     }
 }

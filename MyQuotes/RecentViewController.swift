@@ -70,7 +70,7 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 cell.authorLabel.text = quoteObj.author!
                 cell.quoteLabel.text = quoteObj.quote!
                 cell.likeImageView.image = UIImage(named: "like")
-                cell.userHasLiked = true
+                cell.userHasLiked = false
                 
                 return cell
             }
@@ -85,7 +85,7 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //return screenWidth * 0.55
         
         //IPHONE
-        return screenHeight * 0.47
+        return screenHeight * 0.37
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
