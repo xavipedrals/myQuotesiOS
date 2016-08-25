@@ -11,46 +11,60 @@ import UIKit
 class Quote: NSObject {
     
     var id: String?
-    var author: String?
-    var authorBackground: String?
-    var quote: String?
-    var quoteBackground: String?
+    var likeCount: Int?
+    var authorName: String?
+    var authorPhoto: String?
+    var text: String?
+    var backgroundImg: String?
+    var backgroundColor: String?
     
     init(data: NSDictionary) {
         guard let id = data["_id"] as? String else{
             print("Error with id")
             return
         }
-        guard let author = data["author"] as? String else{
-            print("Error with author")
+        guard let authorName = data["author_name"] as? String else{
+            print("Error with author_name")
             return
         }
-        guard let authorBackground = data["authorBackground"] as? String else{
-            print("Error with authorBackground")
+        guard let authorPhoto = data["author_photo"] as? String else{
+            print("Error with author_photo")
             return
         }
-        guard let quote = data["quote"] as? String else{
-            print("Error with quote")
+        guard let text = data["text"] as? String else{
+            print("Error with text")
             return
         }
-        guard let quoteBackground = data["background"] as? String else{
-            print("Error with background")
+        guard let backgroundImg = data["background_img"] as? String else{
+            print("Error with background_img")
+            return
+        }
+        guard let backgroundColor = data["background_color"] as? String else{
+            print("Error with background_color")
+            return
+        }
+        guard let likeCount = data["like_count"] as? Int else{
+            print("Error with like_count")
             return
         }
         
         self.id = id
-        self.author = author
-        self.authorBackground = authorBackground
-        self.quote = quote
-        self.quoteBackground = quoteBackground
+        self.authorName = authorName
+        self.authorPhoto = authorPhoto
+        self.text = text
+        self.backgroundImg = backgroundImg
+        self.backgroundColor = backgroundColor
+        self.likeCount = likeCount
     }
     
     func printQuote(){
         print("id " + self.id!)
-        print("author " + self.author!)
-        print("authorBackground " + self.authorBackground!)
-        print("quote " + self.quote!)
-        print("quoteBackground " + self.quoteBackground!)
+        print("likeCount " + String(self.likeCount!))
+        print("authorName " + self.authorName!)
+        print("authorPhoto " + self.authorPhoto!)
+        print("text " + self.text!)
+        print("backgroundImg " + self.backgroundImg!)
+        print("backgroundColor " + self.backgroundColor!)
     }
 
 }

@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 
+
 class RecentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var backgroundImage: UIImageView!
