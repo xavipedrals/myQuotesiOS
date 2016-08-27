@@ -47,7 +47,7 @@ class SingleQuoteViewController: UIViewController {
         roundImageView.layer.borderColor = UIColor.whiteColor().CGColor
         
         backgroundImage.kf_setImageWithURL(NSURL(string: self.backgroundImgStr!)!)
-        roundImageView.kf_setImageWithURL(NSURL(string: self.authorImgStr!)!)
+        roundImageView.kf_setImageWithURL(NSURL(string: self.authorImgStr!)!, placeholderImage: UIImage(named: "user.png"))
         self.authorLabel.text = self.authorStr!
         self.quoteLabel.text = self.quoteStr!
         self.likeLabel.text = String(likeCount!)
