@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 
 protocol updateQuotesArray {
-    func updateQuoteLikes(idQuote: String, likeCount: Int)
+    func updateQuoteLikes(_ idQuote: String, likeCount: Int)
 }
 
 class SingleQuoteViewController: UIViewController {
@@ -32,32 +32,32 @@ class SingleQuoteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.isTranslucent = true
         
 //        let backButtonItem = UIBarButtonItem(image: UIImage(named: "left-arrow"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
 //        self.navigationItem.leftBarButtonItem = backButtonItem
         
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         roundImageView.layer.cornerRadius = roundImageView.frame.size.width / 2
         roundImageView.clipsToBounds = true
         roundImageView.layer.borderWidth = 1
-        roundImageView.layer.borderColor = UIColor.whiteColor().CGColor
+        roundImageView.layer.borderColor = UIColor.white.cgColor
         
-        backgroundImage.kf_setImageWithURL(NSURL(string: self.backgroundImgStr!)!)
-        roundImageView.kf_setImageWithURL(NSURL(string: self.authorImgStr!)!, placeholderImage: UIImage(named: "user.png"))
+        backgroundImage.kf_setImage(with: URL(string: self.backgroundImgStr!)!)
+        roundImageView.kf_setImage(with: URL(string: self.authorImgStr!)!, placeholder: UIImage(named: "user.png"))
         self.authorLabel.text = self.authorStr!
         self.quoteLabel.text = self.quoteStr!
         self.likeLabel.text = String(likeCount!)
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     
-    @IBAction func likePressed(sender: AnyObject) {
+    @IBAction func likePressed(_ sender: AnyObject) {
         if (self.userHasLiked!){
             self.likeImageView.image = UIImage(named: "like")
             self.userHasLiked = false
@@ -75,8 +75,8 @@ class SingleQuoteViewController: UIViewController {
         }
     }
     
-    @IBAction func backButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+    @IBAction func backButtonPressed(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

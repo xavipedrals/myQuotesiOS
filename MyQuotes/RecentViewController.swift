@@ -18,19 +18,19 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var stopRefreshing: Bool!
     
     //HELPER
-    func hexStringToUIColor (hex:String) -> UIColor {
-        var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercaseString
+    func hexStringToUIColor (_ hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines as CharacterSet).uppercased()
         
         if (cString.hasPrefix("#")) {
-            cString = cString.substringFromIndex(cString.startIndex.advancedBy(1))
+            cString = cString.substring(from: cString.characters.index(cString.startIndex, offsetBy: 1))
         }
         
         if ((cString.characters.count) != 6) {
-            return UIColor.grayColor()
+            return UIColor.gray
         }
         
         var rgbValue:UInt32 = 0
-        NSScanner(string: cString).scanHexInt(&rgbValue)
+        Scanner(string: cString).scanHexInt32(&rgbValue)
         
         return UIColor(
             red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
@@ -45,7 +45,7 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
 //        self.tableView.estimatedRowHeight = 300
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         self.heightAtIndexPath = NSMutableDictionary()
         NetworkController.getRecentQuotes(){
             result in
@@ -63,39 +63,39 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        tableView.deselectRowAtIndexPath(indexPath, animated: false)
-        self.lastSelectedIndex = indexPath.row
-        self.performSegueWithIdentifier("showRecentDetail", sender: self)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        tableView.deselectRow(at: indexPath, animated: false)
+        self.lastSelectedIndex = (indexPath as NSIndexPath).row
+        self.performSegue(withIdentifier: "showRecentDetail", sender: self)
     }
     
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let height = self.heightAtIndexPath.objectForKey(indexPath)
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height = self.heightAtIndexPath.object(forKey: indexPath)
         if ((height) != nil) {
-            return CGFloat(height!.floatValue)
+            return CGFloat((height! as AnyObject).floatValue)
         } else {
             return UITableViewAutomaticDimension
         }
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let height = cell.frame.size.height
-        self.heightAtIndexPath.setObject(height, forKey: indexPath)
+        self.heightAtIndexPath.setObject(height, forKey: indexPath as NSCopying)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if (self.quotesArray != nil){
             return (self.quotesArray?.count)!
         }
         return 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        if let cell = tableView.dequeueReusableCellWithIdentifier("recentCell") as? RecentTableViewCell{
-            if let quoteObj = quotesArray![indexPath.row] as? Quote {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "recentCell") as? RecentTableViewCell{
+            if let quoteObj = quotesArray![(indexPath as NSIndexPath).row] as? Quote {
 
-                cell.backgroundImage.layer.backgroundColor = hexStringToUIColor(quoteObj.backgroundColor!).CGColor
-                cell.backgroundImage.kf_setImageWithURL(NSURL(string: quoteObj.backgroundImg!)!)
+                cell.backgroundImage.layer.backgroundColor = hexStringToUIColor(quoteObj.backgroundColor!).cgColor
+                cell.backgroundImage.kf_setImage(with: URL(string: quoteObj.backgroundImg!)!)
                 cell.authorLabel.text = quoteObj.authorName!
                 cell.quoteLabel.text = quoteObj.text!
                 cell.likeImageView.image = UIImage(named: "like")
@@ -109,8 +109,8 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return UITableViewCell()
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let screenHeight = UIScreen.mainScreen().bounds.height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let screenHeight = UIScreen.main.bounds.height
         //IPAD
         //return screenWidth * 0.55
         
@@ -119,7 +119,7 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     //when table bottom is reached get more rows
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (!self.isDataRefreshing && !self.stopRefreshing){
             let height = scrollView.frame.size.height;
             let contentYoffset = scrollView.contentOffset.y
@@ -132,15 +132,15 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 NetworkController.getRecentQuotesWithSkip(self.quotesArray!.count){
                     result in
                     if (result.count > 0){
-                        var indexPathsArray = [NSIndexPath]()
+                        var indexPathsArray = [IndexPath]()
                         for index in 0...result.count-1 {
                             let newIndex = index + self.quotesArray!.count
-                            indexPathsArray.append(NSIndexPath(forRow: newIndex, inSection: 0))
+                            indexPathsArray.append(IndexPath(row: newIndex, section: 0))
                         }
-                        self.quotesArray?.addObjectsFromArray(result as [AnyObject])
+                        self.quotesArray?.addObjects(from: result as [AnyObject])
                         
                         self.tableView.beginUpdates()
-                        self.tableView.insertRowsAtIndexPaths(indexPathsArray, withRowAnimation: .Bottom)
+                        self.tableView.insertRows(at: indexPathsArray, with: .bottom)
                         self.tableView.endUpdates()
                         
                         self.isDataRefreshing = false
@@ -153,11 +153,11 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "showRecentDetail"{
-            if let detailViewController = segue.destinationViewController as? SingleQuoteViewController{
+            if let detailViewController = segue.destination as? SingleQuoteViewController{
                 if let quoteObj = quotesArray![lastSelectedIndex!] as? Quote{
                     detailViewController.quoteStr = quoteObj.text!
                     detailViewController.authorStr = quoteObj.authorName!
@@ -170,10 +170,10 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func updateQuoteLikes(idQuote: String, likeCount: Int){
+    func updateQuoteLikes(_ idQuote: String, likeCount: Int){
         var i = 0
         var found = false
-        while (!found && i < quotesArray?.count){
+        while (!found && i < (quotesArray?.count)!){
             if let quote = quotesArray![i] as? Quote {
                 if (quote.id == idQuote){
                     quote.likeCount = likeCount

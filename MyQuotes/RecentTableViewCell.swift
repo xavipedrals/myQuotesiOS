@@ -34,13 +34,13 @@ class RecentTableViewCell: UITableViewCell {
 //        self.backgroundImage.layer.cornerRadius = 15
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
-    @IBAction func likePressed(sender: AnyObject) {
+    @IBAction func likePressed(_ sender: AnyObject) {
         if (self.userHasLiked!){
             self.likeImageView.image = UIImage(named: "like")
             self.userHasLiked = false

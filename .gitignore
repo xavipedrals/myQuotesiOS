@@ -1,5 +1,10 @@
 # Created by https://www.gitignore.io/api/xcode,swift
 
+Carthage/*
+Carthage
+.Carthage
+.Carthage/*
+
 ### Xcode ###
 # Xcode
 #

@@ -24,35 +24,35 @@ class TabBarViewController: UIViewController {
         super.viewDidLoad()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        recentViewController = storyboard.instantiateViewControllerWithIdentifier("recentViewController")
+        recentViewController = storyboard.instantiateViewController(withIdentifier: "recentViewController")
         
-        topsViewController = storyboard.instantiateViewControllerWithIdentifier("topsViewController")
+        topsViewController = storyboard.instantiateViewController(withIdentifier: "topsViewController")
         
-        favoritesViewController = storyboard.instantiateViewControllerWithIdentifier("favoritesViewController")
+        favoritesViewController = storyboard.instantiateViewController(withIdentifier: "favoritesViewController")
         
         viewControllers = [recentViewController, topsViewController, favoritesViewController]
         
-//        buttons[selectedIndex].selected = true
+        buttons[selectedIndex].isSelected = true
         tabPressed(buttons[selectedIndex])
 
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func tabPressed(sender: UIButton) {
+    @IBAction func tabPressed(_ sender: UIButton) {
         let previousIndex = selectedIndex
         selectedIndex = sender.tag
-//        buttons[previousIndex].selected = false
+        buttons[previousIndex].isSelected = false
         let previousVC = viewControllers[previousIndex]
-        previousVC.willMoveToParentViewController(nil)
+        previousVC.willMove(toParentViewController: nil)
         previousVC.view.removeFromSuperview()
         previousVC.removeFromParentViewController()
-//        sender.selected = true
+        sender.isSelected = true
         let vc = viewControllers[selectedIndex]
         addChildViewController(vc)
         vc.view.frame = contentView.bounds
         contentView.addSubview(vc.view)
-        vc.didMoveToParentViewController(self)
+        vc.didMove(toParentViewController: self)
 
     }
     
