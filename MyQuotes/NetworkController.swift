@@ -11,7 +11,7 @@ import Alamofire
 
 class NetworkController: NSObject {
     
-    static let getRecentUrl = "http://localhost:9000/api/quotes/recent"
+    static let getRecentUrl = "https://myquotesserver.herokuapp.com/api/quotes/recent"
     
     static func getRecentQuotes(_ completion: @escaping (_ result: NSMutableArray) -> Void){
         Alamofire.request(getRecentUrl)

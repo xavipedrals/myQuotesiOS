@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lFk-em-gl8">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -42,7 +41,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="eSo-V7-TPt" secondAttribute="bottom" id="Jmm-Vb-dpo"/>
                                     <constraint firstItem="eSo-V7-TPt" firstAttribute="leading" secondItem="vyt-Wi-O7v" secondAttribute="leading" id="NCS-jw-gJg"/>
-                                    <constraint firstAttribute="height" constant="70" id="NKK-R4-qrG"/>
+                                    <constraint firstAttribute="height" constant="66" id="NKK-R4-qrG"/>
                                     <constraint firstAttribute="trailing" secondItem="eSo-V7-TPt" secondAttribute="trailing" id="Qhf-dE-Sf9"/>
                                     <constraint firstItem="eSo-V7-TPt" firstAttribute="top" secondItem="vyt-Wi-O7v" secondAttribute="top" constant="20" id="vr0-E3-Vvt"/>
                                 </constraints>
@@ -95,7 +94,7 @@
                                     <constraint firstItem="Hta-Hg-X8X" firstAttribute="leading" secondItem="o2E-Dp-WOe" secondAttribute="leading" id="fdR-77-Hr8"/>
                                     <constraint firstAttribute="bottom" secondItem="Hta-Hg-X8X" secondAttribute="bottom" id="hif-mc-D7M"/>
                                     <constraint firstAttribute="trailing" secondItem="Hta-Hg-X8X" secondAttribute="trailing" id="opH-21-Cmz"/>
-                                    <constraint firstAttribute="height" constant="70" id="rdG-x1-bdi"/>
+                                    <constraint firstAttribute="height" constant="66" id="rdG-x1-bdi"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAE-wO-xS8">
@@ -150,7 +149,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="5pe-Nz-zt4"/>
+                                    <constraint firstAttribute="height" constant="64" id="5pe-Nz-zt4"/>
                                     <constraint firstAttribute="trailing" secondItem="0ge-fR-q7D" secondAttribute="trailing" id="Irl-oV-RdU"/>
                                     <constraint firstItem="0ge-fR-q7D" firstAttribute="top" secondItem="PvO-eO-h3B" secondAttribute="top" constant="20" id="d5r-dT-rmV"/>
                                     <constraint firstAttribute="bottom" secondItem="0ge-fR-q7D" secondAttribute="bottom" id="qLl-97-K5V"/>
@@ -437,10 +436,10 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vof-A7-WIZ" userLabel="DoubleClickView">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big-like" translatesAutoresizingMaskIntoConstraints="NO" id="XzH-Xm-HQA">
+                                    <imageView hidden="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="big-like" translatesAutoresizingMaskIntoConstraints="NO" id="XzH-Xm-HQA">
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="XzH-Xm-HQA" secondAttribute="height" multiplier="1.11" id="1hV-T7-aWf"/>
-                                            <constraint firstAttribute="height" constant="120" id="oCm-sk-ahO"/>
+                                            <constraint firstAttribute="height" constant="80" id="oCm-sk-ahO"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -552,10 +551,13 @@
                     <connections>
                         <outlet property="authorLabel" destination="HAG-8s-JyL" id="qeF-jn-M8G"/>
                         <outlet property="backgroundImage" destination="AWw-Ur-LNY" id="8Wn-lM-NSd"/>
+                        <outlet property="bigLikeImageView" destination="XzH-Xm-HQA" id="vYL-s2-CLK"/>
+                        <outlet property="doubleClickView" destination="Vof-A7-WIZ" id="d4o-d2-8DO"/>
                         <outlet property="likeImageView" destination="AIq-23-haN" id="eBc-2p-g9N"/>
                         <outlet property="likeLabel" destination="xbp-mr-RiZ" id="Q57-Dh-EHh"/>
                         <outlet property="quoteLabel" destination="p1Y-zX-xO0" id="Zh2-88-xrs"/>
                         <outlet property="roundImageView" destination="s1b-or-sVx" id="GQc-fY-RzZ"/>
+                        <outlet property="roundImageViewHeight" destination="Wsh-h1-PVR" id="L5j-7b-qh0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zld-nk-QQz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -725,6 +727,6 @@
         <image name="user" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i1B-Uj-vig"/>
+        <segue reference="UYh-pq-Wof"/>
     </inferredMetricsTieBreakers>
 </document>

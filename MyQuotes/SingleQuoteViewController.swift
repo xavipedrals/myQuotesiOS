@@ -16,11 +16,15 @@ protocol updateQuotesArray {
 class SingleQuoteViewController: UIViewController {
 
     @IBOutlet weak var roundImageView: UIImageView!
+    
+    @IBOutlet weak var roundImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var likeLabel: UILabel!
+    @IBOutlet weak var doubleClickView: UIView!
+    @IBOutlet weak var bigLikeImageView: UIImageView!
     
     var quoteStr: String?
     var authorStr: String?
@@ -35,13 +39,9 @@ class SingleQuoteViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        
-//        let backButtonItem = UIBarButtonItem(image: UIImage(named: "left-arrow"), style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-//        self.navigationItem.leftBarButtonItem = backButtonItem
-        
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
-        roundImageView.layer.cornerRadius = roundImageView.frame.size.width / 2
+        roundImageView.layer.cornerRadius = roundImageViewHeight.constant / 2
         roundImageView.clipsToBounds = true
         roundImageView.layer.borderWidth = 1
         roundImageView.layer.borderColor = UIColor.white.cgColor
@@ -51,6 +51,16 @@ class SingleQuoteViewController: UIViewController {
         self.authorLabel.text = self.authorStr!
         self.quoteLabel.text = self.quoteStr!
         self.likeLabel.text = String(likeCount!)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        doubleClickView.addGestureRecognizer(tap)
+    }
+    
+    func doubleTapped() {
+        LikeAnimations.doWhiteLikeAnimation(likeView: self.bigLikeImageView)
+        likePressed(self)
+        LikeAnimations.doRedLikeAnimation(likeView: self.likeImageView)
     }
     
     override var prefersStatusBarHidden : Bool {

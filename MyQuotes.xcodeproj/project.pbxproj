@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4708D3941D708F1100653DBF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4708D3931D708F1100653DBF /* TabBarViewController.swift */; };
+		4717B6081D901F3C00671D68 /* LikeAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4717B6071D901F3C00671D68 /* LikeAnimations.swift */; };
 		47330CD91D4F942200B7336C /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47330CD81D4F942200B7336C /* NetworkController.swift */; };
 		47330CDB1D4F94D400B7336C /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47330CDA1D4F94D400B7336C /* Quote.swift */; };
 		4784760D1D8DA74F00A7CA27 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4784760C1D8DA74F00A7CA27 /* Alamofire.framework */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		4708D3931D708F1100653DBF /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		4717B6071D901F3C00671D68 /* LikeAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeAnimations.swift; sourceTree = "<group>"; };
 		47330CD81D4F942200B7336C /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		47330CDA1D4F94D400B7336C /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		4784760C1D8DA74F00A7CA27 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				47F0E2C61D4CE66E001A0AF0 /* Info.plist */,
 				47330CD81D4F942200B7336C /* NetworkController.swift */,
 				47330CDA1D4F94D400B7336C /* Quote.swift */,
+				4717B6071D901F3C00671D68 /* LikeAnimations.swift */,
 			);
 			path = MyQuotes;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				47F0E2BD1D4CE66E001A0AF0 /* ViewController.swift in Sources */,
 				47330CDB1D4F94D400B7336C /* Quote.swift in Sources */,
 				47F0E2BB1D4CE66E001A0AF0 /* AppDelegate.swift in Sources */,
+				4717B6081D901F3C00671D68 /* LikeAnimations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
