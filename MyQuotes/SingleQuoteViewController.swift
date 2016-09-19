@@ -74,7 +74,6 @@ class SingleQuoteViewController: UIViewController {
             var likeCount = Int(self.likeLabel.text!)!
             likeCount -= 1
             self.likeLabel.text = String(likeCount)
-            
         }
         else {
             self.likeImageView.image = UIImage(named: "like-red")

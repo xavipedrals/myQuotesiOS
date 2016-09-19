@@ -1,9 +1,4 @@
-# Created by https://www.gitignore.io/api/xcode,swift
-
-Carthage/*
-Carthage
-.Carthage
-.Carthage/*
+# Created by https://www.gitignore.io/api/xcode,swift,carthage
 
 ### Xcode ###
 # Xcode
@@ -97,3 +92,9 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
+
+
+### Carthage ###
+# Carthage - A simple, decentralized dependency manager for Cocoa
+Carthage/Checkouts/
+Carthage/Build/
