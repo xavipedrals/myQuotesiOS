@@ -16,9 +16,11 @@ class AuthorViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        authorsTableView.rowHeight = UITableViewAutomaticDimension
+        authorsTableView.estimatedRowHeight = 95
+        authorsTableView.separatorStyle = .none
         NetworkController.getAuthors(){
             result in
-            print("HOLA CHAMPION")
             print(result)
             self.authorsArray = result
             self.authorsTableView.reloadData()
