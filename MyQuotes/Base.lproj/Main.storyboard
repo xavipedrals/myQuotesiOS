@@ -97,20 +97,20 @@
                                     <constraint firstAttribute="height" constant="66" id="rdG-x1-bdi"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L0O-DC-hE5">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="138" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L0O-DC-hE5">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="authorCell" id="mc6-sk-Hsq" customClass="AuthorTableViewCell" customModule="MyQuotes" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="93"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="authorCell" rowHeight="138" id="mc6-sk-Hsq" customClass="AuthorTableViewCell" customModule="MyQuotes" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mc6-sk-Hsq" id="23R-cX-b9D">
-                                            <frame key="frameInset" width="375" height="92"/>
+                                            <frame key="frameInset" width="375" height="137"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like-red" translatesAutoresizingMaskIntoConstraints="NO" id="4Qh-BZ-AIa">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like-red" translatesAutoresizingMaskIntoConstraints="NO" id="4Qh-BZ-AIa">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="Se6-9r-PdC"/>
-                                                        <constraint firstAttribute="width" constant="40" id="gf6-tX-ahK"/>
+                                                        <constraint firstAttribute="height" constant="55" id="Se6-9r-PdC"/>
+                                                        <constraint firstAttribute="width" constant="55" id="gf6-tX-ahK"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mfh-On-ZjR">
@@ -148,6 +148,12 @@
                                                 <constraint firstItem="Mfh-On-ZjR" firstAttribute="centerY" secondItem="23R-cX-b9D" secondAttribute="centerY" id="vLg-fZ-zVP"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorPhoto" destination="4Qh-BZ-AIa" id="ygX-BS-fxQ"/>
+                                            <outlet property="authorPhotoHeight" destination="Se6-9r-PdC" id="Ltf-mk-ZHM"/>
+                                            <outlet property="nameLabel" destination="TVv-sN-xkO" id="qo9-0a-NkY"/>
+                                            <outlet property="quotesNumberLabel" destination="vnG-yB-EYp" id="Yod-kJ-lzD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -168,6 +174,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="nja-oG-Acb"/>
+                    <connections>
+                        <outlet property="authorsTableView" destination="L0O-DC-hE5" id="NrN-rP-6cA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGe-Eu-43V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

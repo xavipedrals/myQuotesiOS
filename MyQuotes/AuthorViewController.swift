@@ -10,10 +10,19 @@ import UIKit
 
 class AuthorViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var authorsTableView: UITableView!
+    
+    var authorsArray: NSMutableArray?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        NetworkController.getAuthors(){
+            result in
+            print("HOLA CHAMPION")
+            print(result)
+            self.authorsArray = result
+            self.authorsTableView.reloadData()
+        }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -21,15 +30,22 @@ class AuthorViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 30
+        if (self.authorsArray != nil){
+            return (self.authorsArray?.count)!
+        }
+        return 0
+
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         if let cell = tableView.dequeueReusableCell(withIdentifier: "authorCell") as? AuthorTableViewCell{
-            
-            return cell
+            if let author = authorsArray?[indexPath.row] as? Author {
+                cell.setAuthorName(name: author.name!)
+                cell.setAuthorPhoto(fromUrl: author.photo!)
+                cell.setQuotesNumber(numQuotes: author.quotesCount!)
+                return cell
+            }
         }
-        
         return UITableViewCell()
     }
 

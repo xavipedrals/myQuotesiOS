@@ -17,6 +17,7 @@
 		478476111D8DA78400A7CA27 /* Alamofire.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4784760C1D8DA74F00A7CA27 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		47B94A5E1D90627200213BA1 /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B94A5D1D90627200213BA1 /* AuthorViewController.swift */; };
 		47B94A601D9068FB00213BA1 /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B94A5F1D9068FB00213BA1 /* AuthorTableViewCell.swift */; };
+		47B94A621D906B0B00213BA1 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B94A611D906B0B00213BA1 /* Author.swift */; };
 		47F0E2BB1D4CE66E001A0AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F0E2BA1D4CE66E001A0AF0 /* AppDelegate.swift */; };
 		47F0E2BD1D4CE66E001A0AF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F0E2BC1D4CE66E001A0AF0 /* ViewController.swift */; };
 		47F0E2C01D4CE66E001A0AF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F0E2BE1D4CE66E001A0AF0 /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		4784760E1D8DA75800A7CA27 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		47B94A5D1D90627200213BA1 /* AuthorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorViewController.swift; sourceTree = "<group>"; };
 		47B94A5F1D9068FB00213BA1 /* AuthorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorTableViewCell.swift; sourceTree = "<group>"; };
+		47B94A611D906B0B00213BA1 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		47F0E2B71D4CE66E001A0AF0 /* MyQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F0E2BA1D4CE66E001A0AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47F0E2BC1D4CE66E001A0AF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				4717B6071D901F3C00671D68 /* LikeAnimations.swift */,
 				47B94A5D1D90627200213BA1 /* AuthorViewController.swift */,
 				47B94A5F1D9068FB00213BA1 /* AuthorTableViewCell.swift */,
+				47B94A611D906B0B00213BA1 /* Author.swift */,
 			);
 			path = MyQuotes;
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				47F0E2EB1D4CEE97001A0AF0 /* RecentTableViewCell.swift in Sources */,
 				47F0E2F51D4CF847001A0AF0 /* SingleQuoteViewController.swift in Sources */,
 				47330CD91D4F942200B7336C /* NetworkController.swift in Sources */,
+				47B94A621D906B0B00213BA1 /* Author.swift in Sources */,
 				47F0E2E91D4CEC3C001A0AF0 /* RecentViewController.swift in Sources */,
 				47F0E2BD1D4CE66E001A0AF0 /* ViewController.swift in Sources */,
 				47330CDB1D4F94D400B7336C /* Quote.swift in Sources */,

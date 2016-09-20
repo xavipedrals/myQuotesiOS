@@ -7,18 +7,26 @@
 //
 
 import UIKit
+import Kingfisher
 
 class AuthorTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var authorPhoto: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var quotesNumberLabel: UILabel!
+    @IBOutlet weak var authorPhotoHeight: NSLayoutConstraint!
+    
+    func setAuthorName(name: String) {
+        nameLabel.text = name
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setQuotesNumber(numQuotes: Int) {
+        quotesNumberLabel.text = String(numQuotes) + " quotes"
     }
-
+    
+    func setAuthorPhoto(fromUrl: String) {
+        authorPhoto.layer.cornerRadius = authorPhotoHeight.constant / 2
+        authorPhoto.clipsToBounds = true
+        authorPhoto.kf_setImage(with: URL(string: fromUrl))
+    }
 }

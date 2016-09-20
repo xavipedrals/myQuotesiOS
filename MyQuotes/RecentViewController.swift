@@ -51,7 +51,6 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
             result in
             self.quotesArray = result
             self.tableView.reloadData()
-//            self.tableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, self.tableView.numberOfSections)), withRowAnimation: .None)
         }
         self.isDataRefreshing = false
         self.stopRefreshing = false
@@ -59,7 +58,7 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        self.title = "Recent"
+//        self.title = "Recent"
         // Dispose of any resources that can be recreated.
     }
     
@@ -92,7 +91,7 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         if let cell = tableView.dequeueReusableCell(withIdentifier: "recentCell") as? RecentTableViewCell{
-            if let quoteObj = quotesArray![(indexPath as NSIndexPath).row] as? Quote {
+            if let quoteObj = quotesArray![indexPath.row] as? Quote {
 
                 cell.backgroundImage.layer.backgroundColor = hexStringToUIColor(quoteObj.backgroundColor!).cgColor
                 cell.backgroundImage.kf_setImage(with: URL(string: quoteObj.backgroundImg!)!)
