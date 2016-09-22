@@ -118,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		473A82A41D946FF900221F71 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4717B6071D901F3C00671D68 /* LikeAnimations.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		47F0E2AE1D4CE66D001A0AF0 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +150,7 @@
 		47F0E2B91D4CE66E001A0AF0 /* MyQuotes */ = {
 			isa = PBXGroup;
 			children = (
+				473A82A41D946FF900221F71 /* Utils */,
 				47F0E2BA1D4CE66E001A0AF0 /* AppDelegate.swift */,
 				47F0E2BC1D4CE66E001A0AF0 /* ViewController.swift */,
 				4708D3931D708F1100653DBF /* TabBarViewController.swift */,
@@ -155,7 +164,6 @@
 				47F0E2C61D4CE66E001A0AF0 /* Info.plist */,
 				47330CD81D4F942200B7336C /* NetworkController.swift */,
 				47330CDA1D4F94D400B7336C /* Quote.swift */,
-				4717B6071D901F3C00671D68 /* LikeAnimations.swift */,
 				47B94A5D1D90627200213BA1 /* AuthorViewController.swift */,
 				47B94A5F1D9068FB00213BA1 /* AuthorTableViewCell.swift */,
 				47B94A611D906B0B00213BA1 /* Author.swift */,

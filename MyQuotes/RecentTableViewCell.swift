@@ -18,26 +18,35 @@ class RecentTableViewCell: UITableViewCell {
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var likeLabel: UILabel!
     
-    var quoteBackground: String?
-    var quote: String?
-    var author: String?
     var userHasLiked: Bool?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-//        if (self.userHasLiked != nil && self.userHasLiked!){
-//            likeImageView.image = UIImage(named: "like")
-//        }
-        
-//        self.backgroundImage.kf_setImageWithURL(NSURL(string: "https://images.unsplash.com/photo-1422651355218-53453822ebb8?w=600&fit=max")!)
-//
-//        self.backgroundImage.layer.cornerRadius = 15
+    //HELPER
+    func hexStringToUIColor (_ hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines as CharacterSet).uppercased()
+        if (cString.hasPrefix("#")) {
+            cString = cString.substring(from: cString.characters.index(cString.startIndex, offsetBy: 1))
+        }
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func initCell(fromQuote: Quote) {
+        backgroundImage.layer.backgroundColor = hexStringToUIColor(fromQuote.backgroundColor!).cgColor
+        backgroundImage.kf_setImage(with: URL(string: fromQuote.backgroundImg!)!)
+        authorLabel.text = fromQuote.authorName!
+        quoteLabel.text = fromQuote.text!
+        likeImageView.image = UIImage(named: "like")
+        likeLabel.text = String(fromQuote.likeCount!)
+        userHasLiked = false
     }
 
     @IBAction func likePressed(_ sender: AnyObject) {
@@ -57,4 +66,6 @@ class RecentTableViewCell: UITableViewCell {
             self.likeLabel.text = String(likeCount)
         }
     }
+    
+    
 }

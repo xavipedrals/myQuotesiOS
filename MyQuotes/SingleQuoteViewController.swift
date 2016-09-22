@@ -16,7 +16,6 @@ protocol updateQuotesArray {
 class SingleQuoteViewController: UIViewController {
 
     @IBOutlet weak var roundImageView: UIImageView!
-    
     @IBOutlet weak var roundImageViewHeight: NSLayoutConstraint!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var quoteLabel: UILabel!
@@ -35,12 +34,12 @@ class SingleQuoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.navigationBar.tintColor = UIColor.white
-        
+        initVisuals()
+        configDoubleTapGestureRecognizer()
+    }
+    
+    func initVisuals() {
+        configNavigationBar()
         roundImageView.layer.cornerRadius = roundImageViewHeight.constant / 2
         roundImageView.clipsToBounds = true
         roundImageView.layer.borderWidth = 1
@@ -48,10 +47,19 @@ class SingleQuoteViewController: UIViewController {
         
         backgroundImage.kf_setImage(with: URL(string: self.backgroundImgStr!)!)
         roundImageView.kf_setImage(with: URL(string: self.authorImgStr!)!, placeholder: UIImage(named: "user.png"))
-        self.authorLabel.text = self.authorStr!
-        self.quoteLabel.text = self.quoteStr!
-        self.likeLabel.text = String(likeCount!)
-        
+        authorLabel.text = authorStr!
+        quoteLabel.text = quoteStr!
+        likeLabel.text = String(likeCount!)
+    }
+    
+    func configNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.tintColor = UIColor.white
+    }
+    
+    func configDoubleTapGestureRecognizer() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         tap.numberOfTapsRequired = 2
         doubleClickView.addGestureRecognizer(tap)
@@ -59,7 +67,9 @@ class SingleQuoteViewController: UIViewController {
     
     func doubleTapped() {
         LikeAnimations.doWhiteLikeAnimation(likeView: self.bigLikeImageView)
-        likePressed(self)
+        if (!userHasLiked!) {
+            changeLikeState()
+        }
         LikeAnimations.doRedLikeAnimation(likeView: self.likeImageView)
     }
     
@@ -68,24 +78,26 @@ class SingleQuoteViewController: UIViewController {
     }
     
     @IBAction func likePressed(_ sender: AnyObject) {
-        if (self.userHasLiked!){
-            self.likeImageView.image = UIImage(named: "like")
-            self.userHasLiked = false
-            var likeCount = Int(self.likeLabel.text!)!
+        changeLikeState()
+    }
+    
+    func changeLikeState() {
+        var likeCount = Int(self.likeLabel.text!)!
+        if (userHasLiked!){
+            likeImageView.image = UIImage(named: "like")
+            userHasLiked = false
             likeCount -= 1
-            self.likeLabel.text = String(likeCount)
         }
         else {
-            self.likeImageView.image = UIImage(named: "like-red")
-            self.userHasLiked = true
-            var likeCount = Int(self.likeLabel.text!)!
+            likeImageView.image = UIImage(named: "like-red")
+            userHasLiked = true
             likeCount += 1
-            self.likeLabel.text = String(likeCount)
         }
+        likeLabel.text = String(likeCount)
     }
     
     @IBAction func backButtonPressed(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
 }

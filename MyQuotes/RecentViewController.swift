@@ -17,30 +17,6 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var isDataRefreshing: Bool!
     var stopRefreshing: Bool!
     
-    //HELPER
-    func hexStringToUIColor (_ hex:String) -> UIColor {
-        var cString:String = hex.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines as CharacterSet).uppercased()
-        
-        if (cString.hasPrefix("#")) {
-            cString = cString.substring(from: cString.characters.index(cString.startIndex, offsetBy: 1))
-        }
-        
-        if ((cString.characters.count) != 6) {
-            return UIColor.gray
-        }
-        
-        var rgbValue:UInt32 = 0
-        Scanner(string: cString).scanHexInt32(&rgbValue)
-        
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
-        )
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -54,12 +30,6 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         self.isDataRefreshing = false
         self.stopRefreshing = false
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-//        self.title = "Recent"
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
@@ -92,15 +62,7 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         if let cell = tableView.dequeueReusableCell(withIdentifier: "recentCell") as? RecentTableViewCell{
             if let quoteObj = quotesArray![indexPath.row] as? Quote {
-
-                cell.backgroundImage.layer.backgroundColor = hexStringToUIColor(quoteObj.backgroundColor!).cgColor
-                cell.backgroundImage.kf_setImage(with: URL(string: quoteObj.backgroundImg!)!)
-                cell.authorLabel.text = quoteObj.authorName!
-                cell.quoteLabel.text = quoteObj.text!
-                cell.likeImageView.image = UIImage(named: "like")
-                cell.likeLabel.text = String(quoteObj.likeCount!)
-                cell.userHasLiked = false
-                
+                cell.initCell(fromQuote: quoteObj)
                 return cell
             }
         }
@@ -126,7 +88,6 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
             if(distanceFromBottom < height)
             {
                 //BOTTOM OF THE TABLE
-//                print("End of the table")
                 self.isDataRefreshing = true
                 NetworkController.getRecentQuotesWithSkip(self.quotesArray!.count){
                     result in
