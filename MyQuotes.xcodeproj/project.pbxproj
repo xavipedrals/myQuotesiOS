@@ -19,7 +19,6 @@
 		47B94A601D9068FB00213BA1 /* AuthorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B94A5F1D9068FB00213BA1 /* AuthorTableViewCell.swift */; };
 		47B94A621D906B0B00213BA1 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B94A611D906B0B00213BA1 /* Author.swift */; };
 		47F0E2BB1D4CE66E001A0AF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F0E2BA1D4CE66E001A0AF0 /* AppDelegate.swift */; };
-		47F0E2BD1D4CE66E001A0AF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F0E2BC1D4CE66E001A0AF0 /* ViewController.swift */; };
 		47F0E2C01D4CE66E001A0AF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F0E2BE1D4CE66E001A0AF0 /* Main.storyboard */; };
 		47F0E2C21D4CE66E001A0AF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47F0E2C11D4CE66E001A0AF0 /* Assets.xcassets */; };
 		47F0E2C51D4CE66E001A0AF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47F0E2C31D4CE66E001A0AF0 /* LaunchScreen.storyboard */; };
@@ -74,7 +73,6 @@
 		47B94A611D906B0B00213BA1 /* Author.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		47F0E2B71D4CE66E001A0AF0 /* MyQuotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyQuotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47F0E2BA1D4CE66E001A0AF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		47F0E2BC1D4CE66E001A0AF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		47F0E2BF1D4CE66E001A0AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		47F0E2C11D4CE66E001A0AF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47F0E2C41D4CE66E001A0AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -121,9 +119,19 @@
 		473A82A41D946FF900221F71 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				47330CD81D4F942200B7336C /* NetworkController.swift */,
 				4717B6071D901F3C00671D68 /* LikeAnimations.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		473F66581D95600E00CFB98B /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				47330CDA1D4F94D400B7336C /* Quote.swift */,
+				47B94A611D906B0B00213BA1 /* Author.swift */,
+			);
+			name = Wrappers;
 			sourceTree = "<group>";
 		};
 		47F0E2AE1D4CE66D001A0AF0 = {
@@ -151,8 +159,8 @@
 			isa = PBXGroup;
 			children = (
 				473A82A41D946FF900221F71 /* Utils */,
+				473F66581D95600E00CFB98B /* Wrappers */,
 				47F0E2BA1D4CE66E001A0AF0 /* AppDelegate.swift */,
-				47F0E2BC1D4CE66E001A0AF0 /* ViewController.swift */,
 				4708D3931D708F1100653DBF /* TabBarViewController.swift */,
 				47F0E2F41D4CF847001A0AF0 /* SingleQuoteViewController.swift */,
 				47F0E2EA1D4CEE97001A0AF0 /* RecentTableViewCell.swift */,
@@ -162,11 +170,8 @@
 				47FD51DD1D4F473100E411AD /* Media.xcassets */,
 				47F0E2C31D4CE66E001A0AF0 /* LaunchScreen.storyboard */,
 				47F0E2C61D4CE66E001A0AF0 /* Info.plist */,
-				47330CD81D4F942200B7336C /* NetworkController.swift */,
-				47330CDA1D4F94D400B7336C /* Quote.swift */,
 				47B94A5D1D90627200213BA1 /* AuthorViewController.swift */,
 				47B94A5F1D9068FB00213BA1 /* AuthorTableViewCell.swift */,
-				47B94A611D906B0B00213BA1 /* Author.swift */,
 			);
 			path = MyQuotes;
 			sourceTree = "<group>";
@@ -342,7 +347,6 @@
 				47330CD91D4F942200B7336C /* NetworkController.swift in Sources */,
 				47B94A621D906B0B00213BA1 /* Author.swift in Sources */,
 				47F0E2E91D4CEC3C001A0AF0 /* RecentViewController.swift in Sources */,
-				47F0E2BD1D4CE66E001A0AF0 /* ViewController.swift in Sources */,
 				47330CDB1D4F94D400B7336C /* Quote.swift in Sources */,
 				47F0E2BB1D4CE66E001A0AF0 /* AppDelegate.swift in Sources */,
 				4717B6081D901F3C00671D68 /* LikeAnimations.swift in Sources */,

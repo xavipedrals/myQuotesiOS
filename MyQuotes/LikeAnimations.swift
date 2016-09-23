@@ -8,14 +8,22 @@
 
 import UIKit
 
-class LikeAnimations {
+protocol LikeAnimation {
+    static func fadeOut(likeView: UIImageView)
+}
+
+extension LikeAnimation {
+    static var bigTransform: CGAffineTransform {
+        return CGAffineTransform(scaleX: 1.4, y: 1.4)
+    }
+    static var normalTransform: CGAffineTransform {
+        return CGAffineTransform(scaleX: 1, y: 1)
+    }
+    static var smallTransform: CGAffineTransform {
+        return CGAffineTransform(scaleX: 1.1, y: 1.1)
+    }
     
-    static var bigTransform = CGAffineTransform(scaleX: 1.4, y: 1.4)
-    static var normalTransform = CGAffineTransform(scaleX: 1, y: 1)
-    static var smallTransform = CGAffineTransform(scaleX: 1.1, y: 1.1)
-    static var fadeOut = CGAffineTransform(scaleX: 0.5, y: 0.5)
-    
-    static func doWhiteLikeAnimation(likeView: UIImageView) {
+    static func start(likeView: UIImageView) {
         likeView.isHidden = false
         bigSizeIncrease(likeView: likeView)
     }
@@ -52,50 +60,28 @@ class LikeAnimations {
                 turnNormalSize(likeView: likeView, fadeOutNext: true)
         })
     }
+}
+
+class BigLikeAnimation: LikeAnimation {
+    static var fadeOutTransform = CGAffineTransform(scaleX: 0.5, y: 0.5)
     
     static func fadeOut(likeView: UIImageView) {
         UIView.animate(withDuration: 0.15, delay: 0.15, animations: {
-            likeView.transform = fadeOut
+            likeView.transform = fadeOutTransform
             likeView.alpha = 0
             }, completion: {
                 value in
-                likeView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                likeView.transform = normalTransform
                 likeView.isHidden = true
         })
     }
-    
-    //optimizable
-    static func doRedLikeAnimation(likeView: UIImageView) {
-        redBigSizeIncrease(likeView: likeView)
-    }
-    
-    static func redBigSizeIncrease(likeView: UIImageView) {
-        UIView.animate(withDuration: 0.3, animations: {
-            likeView.alpha = 1
-            likeView.transform = bigTransform
-            }, completion: {
-                value in
-                redTurnNormalSize(likeView: likeView, lastAnimation: false)
-        })
-    }
-    
-    static func redTurnNormalSize(likeView: UIImageView, lastAnimation: Bool) {
+}
+
+class SmallLikeAnimation: LikeAnimation {
+    static func fadeOut(likeView: UIImageView) {
         UIView.animate(withDuration: 0.15, animations: {
             likeView.transform = normalTransform
-            }, completion: {
-                value in
-                if !lastAnimation {
-                    redSmallSizeIncrease(likeView: likeView)
-                }
-        })
-    }
-    
-    static func redSmallSizeIncrease(likeView: UIImageView) {
-        UIView.animate(withDuration: 0.15, animations: {
-            likeView.transform = smallTransform
-            }, completion: {
-                value in
-                redTurnNormalSize(likeView: likeView, lastAnimation: true)
         })
     }
 }
+

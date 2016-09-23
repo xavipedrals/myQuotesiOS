@@ -66,11 +66,11 @@ class SingleQuoteViewController: UIViewController {
     }
     
     func doubleTapped() {
-        LikeAnimations.doWhiteLikeAnimation(likeView: self.bigLikeImageView)
+        BigLikeAnimation.start(likeView: self.bigLikeImageView)
         if (!userHasLiked!) {
             changeLikeState()
         }
-        LikeAnimations.doRedLikeAnimation(likeView: self.likeImageView)
+        SmallLikeAnimation.start(likeView: self.likeImageView)
     }
     
     override var prefersStatusBarHidden : Bool {
