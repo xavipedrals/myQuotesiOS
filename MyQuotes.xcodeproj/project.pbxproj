@@ -11,6 +11,10 @@
 		4717B6081D901F3C00671D68 /* LikeAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4717B6071D901F3C00671D68 /* LikeAnimations.swift */; };
 		47330CD91D4F942200B7336C /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47330CD81D4F942200B7336C /* NetworkController.swift */; };
 		47330CDB1D4F94D400B7336C /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47330CDA1D4F94D400B7336C /* Quote.swift */; };
+		473F665B1D956A5D00CFB98B /* Arvo in Resources */ = {isa = PBXBuildFile; fileRef = 473F665A1D956A5D00CFB98B /* Arvo */; };
+		473F665D1D956A6F00CFB98B /* Farsan in Resources */ = {isa = PBXBuildFile; fileRef = 473F665C1D956A6F00CFB98B /* Farsan */; };
+		473F665F1D956A7900CFB98B /* Raleway in Resources */ = {isa = PBXBuildFile; fileRef = 473F665E1D956A7900CFB98B /* Raleway */; };
+		473F66611D956A8200CFB98B /* Source_Sans_Pro in Resources */ = {isa = PBXBuildFile; fileRef = 473F66601D956A8200CFB98B /* Source_Sans_Pro */; };
 		4784760D1D8DA74F00A7CA27 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4784760C1D8DA74F00A7CA27 /* Alamofire.framework */; };
 		4784760F1D8DA75800A7CA27 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4784760E1D8DA75800A7CA27 /* Kingfisher.framework */; };
 		478476101D8DA78000A7CA27 /* Kingfisher.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4784760E1D8DA75800A7CA27 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -66,6 +70,10 @@
 		4717B6071D901F3C00671D68 /* LikeAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LikeAnimations.swift; sourceTree = "<group>"; };
 		47330CD81D4F942200B7336C /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		47330CDA1D4F94D400B7336C /* Quote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		473F665A1D956A5D00CFB98B /* Arvo */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Arvo; sourceTree = "<group>"; };
+		473F665C1D956A6F00CFB98B /* Farsan */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Farsan; sourceTree = "<group>"; };
+		473F665E1D956A7900CFB98B /* Raleway */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Raleway; sourceTree = "<group>"; };
+		473F66601D956A8200CFB98B /* Source_Sans_Pro */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Source_Sans_Pro; sourceTree = "<group>"; };
 		4784760C1D8DA74F00A7CA27 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		4784760E1D8DA75800A7CA27 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		47B94A5D1D90627200213BA1 /* AuthorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorViewController.swift; sourceTree = "<group>"; };
@@ -134,9 +142,21 @@
 			name = Wrappers;
 			sourceTree = "<group>";
 		};
+		473F66591D956A1400CFB98B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				473F66601D956A8200CFB98B /* Source_Sans_Pro */,
+				473F665E1D956A7900CFB98B /* Raleway */,
+				473F665C1D956A6F00CFB98B /* Farsan */,
+				473F665A1D956A5D00CFB98B /* Arvo */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		47F0E2AE1D4CE66D001A0AF0 = {
 			isa = PBXGroup;
 			children = (
+				473F66591D956A1400CFB98B /* Fonts */,
 				47F0E2EC1D4CF50E001A0AF0 /* Frameworks */,
 				47F0E2B91D4CE66E001A0AF0 /* MyQuotes */,
 				47F0E2CE1D4CE66E001A0AF0 /* MyQuotesTests */,
@@ -312,9 +332,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F0E2C51D4CE66E001A0AF0 /* LaunchScreen.storyboard in Resources */,
+				473F665D1D956A6F00CFB98B /* Farsan in Resources */,
+				473F665B1D956A5D00CFB98B /* Arvo in Resources */,
 				47F0E2C21D4CE66E001A0AF0 /* Assets.xcassets in Resources */,
+				473F66611D956A8200CFB98B /* Source_Sans_Pro in Resources */,
 				47FD51DE1D4F473100E411AD /* Media.xcassets in Resources */,
 				47F0E2C01D4CE66E001A0AF0 /* Main.storyboard in Resources */,
+				473F665F1D956A7900CFB98B /* Raleway in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

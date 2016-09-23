@@ -48,5 +48,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Source_Sans_Pro/SourceSansPro-Light.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-Regular.ttf</string>
+		<string>Source_Sans_Pro/SourceSansPro-Semibold.ttf</string>
+		<string>Raleway/Raleway-Light.ttf</string>
+		<string>Raleway/Raleway-Medium.ttf</string>
+		<string>Raleway/Raleway-Regular.ttf</string>
+		<string>Raleway/Raleway-SemiBold.ttf</string>
+		<string>Farsan/Farsan-Regular.ttf</string>
+		<string>Arvo/Arvo-Regular.ttf</string>
+		<string>Arvo/Arvo-Bold.ttf</string>
+	</array>
 </dict>
 </plist>
