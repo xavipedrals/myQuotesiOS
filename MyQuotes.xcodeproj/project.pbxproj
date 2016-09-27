@@ -31,6 +31,7 @@
 		47F0E2E91D4CEC3C001A0AF0 /* RecentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F0E2E81D4CEC3C001A0AF0 /* RecentViewController.swift */; };
 		47F0E2EB1D4CEE97001A0AF0 /* RecentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F0E2EA1D4CEE97001A0AF0 /* RecentTableViewCell.swift */; };
 		47F0E2F51D4CF847001A0AF0 /* SingleQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F0E2F41D4CF847001A0AF0 /* SingleQuoteViewController.swift */; };
+		47F8B37F1D9ABD5E0005DCBE /* AuthorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47F8B37E1D9ABD5E0005DCBE /* AuthorCollectionViewCell.swift */; };
 		47FD51DE1D4F473100E411AD /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47FD51DD1D4F473100E411AD /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		47F0E2E81D4CEC3C001A0AF0 /* RecentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentViewController.swift; sourceTree = "<group>"; };
 		47F0E2EA1D4CEE97001A0AF0 /* RecentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentTableViewCell.swift; sourceTree = "<group>"; };
 		47F0E2F41D4CF847001A0AF0 /* SingleQuoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleQuoteViewController.swift; sourceTree = "<group>"; };
+		47F8B37E1D9ABD5E0005DCBE /* AuthorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorCollectionViewCell.swift; sourceTree = "<group>"; };
 		47FD51DD1D4F473100E411AD /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 				47F0E2C31D4CE66E001A0AF0 /* LaunchScreen.storyboard */,
 				47F0E2C61D4CE66E001A0AF0 /* Info.plist */,
 				47B94A5D1D90627200213BA1 /* AuthorViewController.swift */,
+				47F8B37E1D9ABD5E0005DCBE /* AuthorCollectionViewCell.swift */,
 				47B94A5F1D9068FB00213BA1 /* AuthorTableViewCell.swift */,
 			);
 			path = MyQuotes;
@@ -374,6 +377,7 @@
 				47330CDB1D4F94D400B7336C /* Quote.swift in Sources */,
 				47F0E2BB1D4CE66E001A0AF0 /* AppDelegate.swift in Sources */,
 				4717B6081D901F3C00671D68 /* LikeAnimations.swift in Sources */,
+				47F8B37F1D9ABD5E0005DCBE /* AuthorCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
