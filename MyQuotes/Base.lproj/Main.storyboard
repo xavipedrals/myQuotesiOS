@@ -114,14 +114,15 @@
                                     <constraint firstAttribute="bottom" secondItem="CEo-gN-aZB" secondAttribute="bottom" id="xco-pS-04y"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skyscrapper" translatesAutoresizingMaskIntoConstraints="NO" id="0AF-59-qRk"/>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L0O-DC-hE5">
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="authorCell" rowHeight="100" id="mc6-sk-Hsq" customClass="AuthorTableViewCell" customModule="MyQuotes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mc6-sk-Hsq" id="23R-cX-b9D">
-                                            <frame key="frameInset" width="375" height="99"/>
+                                            <frame key="frameInset" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-black-line" translatesAutoresizingMaskIntoConstraints="NO" id="4Qh-BZ-AIa">
@@ -134,16 +135,16 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Albert Einstein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVv-sN-xkO">
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 quotes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnG-yB-EYp">
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="TVv-sN-xkO" secondAttribute="trailing" id="0JI-tr-7dz"/>
                                                         <constraint firstAttribute="bottom" secondItem="vnG-yB-EYp" secondAttribute="bottom" constant="3" id="A3T-SG-sqV"/>
@@ -155,12 +156,13 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Emf-mX-qeE" userLabel="Line">
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="On8-iH-o9p"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="Emf-mX-qeE" secondAttribute="bottom" id="0dI-X9-6ak"/>
                                                 <constraint firstItem="Emf-mX-qeE" firstAttribute="leading" secondItem="Mfh-On-ZjR" secondAttribute="leading" id="2Rx-Gd-UBu"/>
@@ -177,6 +179,7 @@
                                                 <constraint firstItem="Emf-mX-qeE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="23R-cX-b9D" secondAttribute="top" constant="50" id="ylq-UJ-NjN"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="authorPhoto" destination="4Qh-BZ-AIa" id="ygX-BS-fxQ"/>
                                             <outlet property="authorPhotoHeight" destination="Se6-9r-PdC" id="Ltf-mk-ZHM"/>
@@ -198,12 +201,17 @@
                             <constraint firstItem="L0O-DC-hE5" firstAttribute="top" secondItem="o2E-Dp-WOe" secondAttribute="bottom" id="JVH-KG-Q7M"/>
                             <constraint firstItem="o2E-Dp-WOe" firstAttribute="top" secondItem="bKb-t3-Hi7" secondAttribute="topMargin" id="PP3-35-sD2"/>
                             <constraint firstItem="L0O-DC-hE5" firstAttribute="leading" secondItem="bKb-t3-Hi7" secondAttribute="leading" id="Q7z-AF-idw"/>
+                            <constraint firstItem="0AF-59-qRk" firstAttribute="bottom" secondItem="L0O-DC-hE5" secondAttribute="bottom" id="ZGU-lp-xKH"/>
+                            <constraint firstItem="0AF-59-qRk" firstAttribute="trailing" secondItem="L0O-DC-hE5" secondAttribute="trailing" id="g4U-oV-W1b"/>
+                            <constraint firstItem="0AF-59-qRk" firstAttribute="leading" secondItem="L0O-DC-hE5" secondAttribute="leading" id="hGC-3o-0Tt"/>
                             <constraint firstAttribute="trailing" secondItem="L0O-DC-hE5" secondAttribute="trailing" id="hwt-Ji-PJZ"/>
+                            <constraint firstItem="0AF-59-qRk" firstAttribute="top" secondItem="L0O-DC-hE5" secondAttribute="top" id="j2J-QU-wvS"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="nja-oG-Acb"/>
                     <connections>
                         <outlet property="authorsTableView" destination="L0O-DC-hE5" id="NrN-rP-6cA"/>
+                        <outlet property="backgroundImageView" destination="0AF-59-qRk" id="c6H-Dw-0MQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGe-Eu-43V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -264,7 +272,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bcc-uE-u1L" id="ow6-jb-Lla">
-                                            <frame key="frameInset" width="375" height="219"/>
+                                            <frame key="frameInset" width="375" height="219.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PT7-Go-hbC" userLabel="QuoteView">
@@ -813,6 +821,7 @@
         <image name="back" width="32" height="32"/>
         <image name="big-like" width="256" height="256"/>
         <image name="like" width="16" height="16"/>
+        <image name="skyscrapper" width="300" height="525"/>
         <image name="star-white" width="32" height="32"/>
         <image name="user-black-line" width="64" height="64"/>
     </resources>

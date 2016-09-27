@@ -12,6 +12,8 @@ class AuthorViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var authorsTableView: UITableView!
     
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
     var authorsArray: NSMutableArray?
     
     override func viewDidLoad() {
@@ -25,6 +27,11 @@ class AuthorViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.authorsArray = result
             self.authorsTableView.reloadData()
         }
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = backgroundImageView.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+//        backgroundImageView.addSubview(blurEffectView)
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
