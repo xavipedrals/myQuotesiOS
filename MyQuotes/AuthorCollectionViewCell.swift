@@ -15,7 +15,15 @@ class AuthorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var quotesNumberLabel: UILabel!
     @IBOutlet weak var authorPhotoHeight: NSLayoutConstraint!
     @IBOutlet weak var textContainer: UIView!
+    @IBOutlet weak var cellLeading: NSLayoutConstraint!
+    @IBOutlet weak var cellTrailing: NSLayoutConstraint!
     
+    func initCell(from: Author, index: Int) {
+        setAuthorName(name: from.name!)
+        setQuotesNumber(numQuotes: from.quotesCount!)
+        setAuthorPhoto(fromUrl: from.photo!)
+        textContainer.layer.cornerRadius = 5
+    }
     
     func setAuthorName(name: String) {
         nameLabel.text = name
@@ -29,13 +37,6 @@ class AuthorCollectionViewCell: UICollectionViewCell {
         authorPhoto.layer.cornerRadius = authorPhotoHeight.constant / 2
         authorPhoto.clipsToBounds = true
         authorPhoto.kf_setImage(with: URL(string: fromUrl), placeholder: UIImage(named: "user-black-line"))
-    }
-    
-    func initCell(from: Author) {
-        setAuthorName(name: from.name!)
-        setQuotesNumber(numQuotes: from.quotesCount!)
-        setAuthorPhoto(fromUrl: from.photo!)
-        textContainer.layer.cornerRadius = 5
     }
     
 }

@@ -24,7 +24,7 @@ class AuthorViewController: UIViewController, UICollectionViewDataSource, UIColl
 //        authorsTableView.estimatedRowHeight = 95
 //        authorsTableView.separatorStyle = .none
         let screenSize: CGRect = UIScreen.main.bounds
-        self.cellWidth = (Int(screenSize.width) / 2) - 5;
+        self.cellWidth = (Int(screenSize.width) / 2)
         NetworkController.getAuthors(){
             result in
             print(result)
@@ -32,11 +32,6 @@ class AuthorViewController: UIViewController, UICollectionViewDataSource, UIColl
 //            self.authorsTableView.reloadData()
             self.authorsCollectionView.reloadData()
         }
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = backgroundImageView.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
-        backgroundImageView.addSubview(blurEffectView)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -48,22 +43,27 @@ class AuthorViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "authorCollectionCell", for: indexPath) as? AuthorCollectionViewCell {
-            if let author = authorsArray?[indexPath.row] as? Author {
-                cell.initCell(from: author)
-                return cell
+        if indexPath.row % 2 == 0 {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "authorCollectionCellOdd", for: indexPath) as? AuthorCollectionViewCell {
+                if let author = authorsArray?[indexPath.row] as? Author {
+                    cell.initCell(from: author, index: indexPath.row)
+                    return cell
+                }
             }
         }
-
+        else {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "authorCollectionCellEven", for: indexPath) as? AuthorCollectionViewCell {
+                if let author = authorsArray?[indexPath.row] as? Author {
+                    cell.initCell(from: author, index: indexPath.row)
+                    return cell
+                }
+            }
+        }
         return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
-        return CGSize(width: cellWidth!, height: cellWidth!)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 0, 0, 0);
+        return CGSize(width: cellWidth!, height: cellWidth! + 10)
     }
     
     //3
