@@ -114,12 +114,8 @@
                                     <constraint firstAttribute="bottom" secondItem="CEo-gN-aZB" secondAttribute="bottom" id="xco-pS-04y"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blurred-skyscraper" translatesAutoresizingMaskIntoConstraints="NO" id="0AF-59-qRk">
-                                <frame key="frameInset" minY="66" width="375" height="601"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nVo-Bm-dhF">
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="lXj-XF-RYG">
                                     <size key="itemSize" width="176" height="155"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -307,7 +303,6 @@
                     <tabBarItem key="tabBarItem" title="Item" id="nja-oG-Acb"/>
                     <connections>
                         <outlet property="authorsCollectionView" destination="nVo-Bm-dhF" id="b4v-8Q-Dd5"/>
-                        <outlet property="backgroundImageView" destination="0AF-59-qRk" id="c6H-Dw-0MQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGe-Eu-43V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -368,7 +363,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bcc-uE-u1L" id="ow6-jb-Lla">
-                                            <frame key="frameInset" width="375" height="219"/>
+                                            <frame key="frameInset" width="375" height="219.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PT7-Go-hbC" userLabel="QuoteView">
@@ -916,7 +911,6 @@
     <resources>
         <image name="back" width="32" height="32"/>
         <image name="big-like" width="256" height="256"/>
-        <image name="blurred-skyscraper" width="300" height="525"/>
         <image name="like" width="16" height="16"/>
         <image name="star-white" width="32" height="32"/>
         <image name="user-black-line" width="64" height="64"/>
