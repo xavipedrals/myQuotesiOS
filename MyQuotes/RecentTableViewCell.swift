@@ -17,8 +17,12 @@ class RecentTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var likeLabel: UILabel!
+    @IBOutlet weak var filterView: UIView!
+    @IBOutlet weak var backgroundImageHeight: NSLayoutConstraint!
     
     var userHasLiked: Bool?
+//    var quoteFont = UIFont(name: "Helvetica Neue", size: 17.0)
+//    var authorFont = UIFont(name: "Helvetica Neue", size: 16.0)
     
     //HELPER
     func hexStringToUIColor (_ hex:String) -> UIColor {
@@ -39,14 +43,27 @@ class RecentTableViewCell: UITableViewCell {
         )
     }
     
+//    func setImageHeight(text: String) {
+//        let screenWidth = UIScreen.main.bounds.height
+//        let quoteWidth = screenWidth - (20 + 20)
+//        let quoteHeight = Commons.heightForLabelWithFont(text: text, font: quoteFont!, width: quoteWidth)
+//        let authorHeight = Commons.heightForLabelWithFont(text: author, font: authorFont!, width: quoteWidth)
+//        let finalHeight = quoteHeight + 25 + 25 + 40
+//        print(finalHeight)
+//        backgroundImageHeight.constant = finalHeight
+//        backgroundImage.setNeedsLayout()
+//        backgroundImage.layoutSubviews()
+//    }
+    
     func initCell(fromQuote: Quote) {
+//        setImageHeight(text: fromQuote.text!)
         backgroundImage.layer.backgroundColor = hexStringToUIColor(fromQuote.backgroundColor!).cgColor
         backgroundImage.kf_setImage(with: URL(string: fromQuote.backgroundImg!)!)
         authorLabel.text = fromQuote.authorName!
         quoteLabel.text = fromQuote.text!
-        likeImageView.image = UIImage(named: "like")
-        likeLabel.text = String(fromQuote.likeCount!)
-        userHasLiked = false
+//        likeImageView.image = UIImage(named: "like")
+//        likeLabel.text = String(fromQuote.likeCount!)
+//        userHasLiked = false
     }
 
     @IBAction func likePressed(_ sender: AnyObject) {

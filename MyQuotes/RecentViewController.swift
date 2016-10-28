@@ -19,10 +19,10 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-//        self.tableView.estimatedRowHeight = 300
+//        self.tableView.rowHeight = UITableViewAutomaticDimension
+//        self.tableView.estimatedRowHeight = 150
         self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        self.heightAtIndexPath = NSMutableDictionary()
+//        self.heightAtIndexPath = NSMutableDictionary()
         NetworkController.getRecentQuotes(){
             result in
             self.quotesArray = result
@@ -38,19 +38,19 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.performSegue(withIdentifier: "showRecentDetail", sender: self)
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height = self.heightAtIndexPath.object(forKey: indexPath)
-        if ((height) != nil) {
-            return CGFloat((height! as AnyObject).floatValue)
-        } else {
-            return UITableViewAutomaticDimension
-        }
-    }
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let height = self.heightAtIndexPath.object(forKey: indexPath)
+//        if ((height) != nil) {
+//            return CGFloat((height! as AnyObject).floatValue)
+//        } else {
+//            return UITableViewAutomaticDimension
+//        }
+//    }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let height = cell.frame.size.height
-        self.heightAtIndexPath.setObject(height, forKey: indexPath as NSCopying)
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let height = cell.frame.size.height
+//        self.heightAtIndexPath.setObject(height, forKey: indexPath as NSCopying)
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if (self.quotesArray != nil){
@@ -66,7 +66,6 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 return cell
             }
         }
-        
         return UITableViewCell()
     }
     
@@ -76,42 +75,42 @@ class RecentViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //return screenWidth * 0.55
         
         //IPHONE
-        return screenHeight * 0.37
+        return screenHeight * 0.3
     }
     
     //when table bottom is reached get more rows
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (!self.isDataRefreshing && !self.stopRefreshing){
-            let height = scrollView.frame.size.height;
-            let contentYoffset = scrollView.contentOffset.y
-            let distanceFromBottom = scrollView.contentSize.height - contentYoffset
-            if(distanceFromBottom < height)
-            {
-                //BOTTOM OF THE TABLE
-                self.isDataRefreshing = true
-                NetworkController.getRecentQuotesWithSkip(self.quotesArray!.count){
-                    result in
-                    if (result.count > 0){
-                        var indexPathsArray = [IndexPath]()
-                        for index in 0...result.count-1 {
-                            let newIndex = index + self.quotesArray!.count
-                            indexPathsArray.append(IndexPath(row: newIndex, section: 0))
-                        }
-                        self.quotesArray?.addObjects(from: result as [AnyObject])
-                        
-                        self.tableView.beginUpdates()
-                        self.tableView.insertRows(at: indexPathsArray, with: .bottom)
-                        self.tableView.endUpdates()
-                        
-                        self.isDataRefreshing = false
-                    }
-                    else {
-                        self.stopRefreshing = true
-                    }
-                }
-            }
-        }
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if (!self.isDataRefreshing && !self.stopRefreshing){
+//            let height = scrollView.frame.size.height;
+//            let contentYoffset = scrollView.contentOffset.y
+//            let distanceFromBottom = scrollView.contentSize.height - contentYoffset
+//            if(distanceFromBottom < height)
+//            {
+//                //BOTTOM OF THE TABLE
+//                self.isDataRefreshing = true
+//                NetworkController.getRecentQuotesWithSkip(self.quotesArray!.count){
+//                    result in
+//                    if (result.count > 0){
+//                        var indexPathsArray = [IndexPath]()
+//                        for index in 0...result.count-1 {
+//                            let newIndex = index + self.quotesArray!.count
+//                            indexPathsArray.append(IndexPath(row: newIndex, section: 0))
+//                        }
+//                        self.quotesArray?.addObjects(from: result as [AnyObject])
+//                        
+//                        self.tableView.beginUpdates()
+//                        self.tableView.insertRows(at: indexPathsArray, with: .bottom)
+//                        self.tableView.endUpdates()
+//                        
+//                        self.isDataRefreshing = false
+//                    }
+//                    else {
+//                        self.stopRefreshing = true
+//                    }
+//                }
+//            }
+//        }
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
