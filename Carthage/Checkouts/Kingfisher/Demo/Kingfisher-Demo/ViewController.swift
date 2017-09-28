@@ -4,7 +4,7 @@
 //
 //  Created by Wei Wang on 15/4/6.
 //
-//  Copyright (c) 2016 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -33,6 +33,10 @@ class ViewController: UICollectionViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         title = "Kingfisher"
+        
+        if #available(iOS 10.0, tvOS 10.0, *) {
+            collectionView?.prefetchDataSource = self
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,25 +61,40 @@ extension ViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {        
         // This will cancel all unfinished downloading task when the cell disappearing.
-        (cell as! CollectionViewCell).cellImageView.kf_cancelDownloadTask()
+        (cell as! CollectionViewCell).cellImageView.kf.cancelDownloadTask()
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        let url = URL(string: "https://raw.githubusercontent.com/onevcat/Kingfisher/master/images/kingfisher-\(indexPath.row + 1).jpg")!
+
+        _ = (cell as! CollectionViewCell).cellImageView.kf.setImage(with: url,
+                                           placeholder: nil,
+                                           options: [.transition(ImageTransition.fade(1))],
+                                           progressBlock: { receivedSize, totalSize in
+                                            print("\(indexPath.row + 1): \(receivedSize)/\(totalSize)")
+            },
+                                           completionHandler: { image, error, cacheType, imageURL in
+                                            print("\(indexPath.row + 1): Finished")
+        })
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
     
-        cell.cellImageView.kf_indicatorType = .activity
-        let url = URL(string: "https://raw.githubusercontent.com/onevcat/Kingfisher/master/images/kingfisher-\(indexPath.row + 1).jpg")!
-        
-        _ = cell.cellImageView.kf_setImage(with: url,
-                                           placeholder: nil,
-                                           options: [.transition(ImageTransition.fade(1))],
-                                           progressBlock: { receivedSize, totalSize in
-                                                print("\(indexPath.row + 1): \(receivedSize)/\(totalSize)")
-                                           },
-                                           completionHandler: { image, error, cacheType, imageURL in
-                                                print("\(indexPath.row + 1): Finished")
-        })
+        cell.cellImageView.kf.indicatorType = .activity
         
         return cell
     }
 }
+
+extension ViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        let urls = indexPaths.flatMap {
+            URL(string: "https://raw.githubusercontent.com/onevcat/Kingfisher/master/images/kingfisher-\($0.row + 1).jpg")
+        }
+        
+        ImagePrefetcher(urls: urls).start()
+    }
+}
+

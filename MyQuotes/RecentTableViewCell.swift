@@ -58,7 +58,7 @@ class RecentTableViewCell: UITableViewCell {
     func initCell(fromQuote: Quote) {
 //        setImageHeight(text: fromQuote.text!)
         backgroundImage.layer.backgroundColor = hexStringToUIColor(fromQuote.backgroundColor!).cgColor
-        backgroundImage.kf_setImage(with: URL(string: fromQuote.backgroundImg!)!)
+        backgroundImage.kf.setImage(with: URL(string: fromQuote.backgroundImg!)!)
         authorLabel.text = fromQuote.authorName!
         quoteLabel.text = fromQuote.text!
 //        likeImageView.image = UIImage(named: "like")

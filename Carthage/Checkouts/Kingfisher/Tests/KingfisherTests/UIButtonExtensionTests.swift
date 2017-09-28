@@ -4,7 +4,7 @@
 //
 //  Created by Wei Wang on 15/4/17.
 //
-//  Copyright (c) 2016 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -71,7 +71,7 @@ class UIButtonExtensionTests: XCTestCase {
         
         cleanDefaultCache()
         
-        button.kf_setImage(with: url, for: .highlighted, placeholder: nil, options: nil, progressBlock: { (receivedSize, totalSize) -> () in
+        button.kf.setImage(with: url, for: .highlighted, placeholder: nil, options: nil, progressBlock: { (receivedSize, totalSize) -> () in
             progressBlockIsCalled = true
         }) { (image, error, cacheType, imageURL) -> () in
             expectation.fulfill()
@@ -80,7 +80,7 @@ class UIButtonExtensionTests: XCTestCase {
             XCTAssert(image != nil, "Downloaded image should exist.")
             XCTAssert(image! == testImage, "Downloaded image should be the same as test image.")
             XCTAssert(self.button.image(for: UIControlState.highlighted)! == testImage, "Downloaded image should be already set to the image for state")
-            XCTAssert(self.button.kf_webURL(for: .highlighted) == imageURL, "Web URL should equal to the downloaded url.")
+            XCTAssert(self.button.kf.webURL(for: .highlighted) == imageURL, "Web URL should equal to the downloaded url.")
             XCTAssert(cacheType == .none, "The cache type should be none here. This image was just downloaded. But now is: \(cacheType)")
         }
         waitForExpectations(timeout: 5, handler: nil)
@@ -94,7 +94,7 @@ class UIButtonExtensionTests: XCTestCase {
         let url = Foundation.URL(string: URLString)!
         
         var progressBlockIsCalled = false
-        button.kf_setBackgroundImage(with: url, for: .normal, placeholder: nil, options: nil, progressBlock: { (receivedSize, totalSize) -> () in
+        button.kf.setBackgroundImage(with: url, for: .normal, placeholder: nil, options: nil, progressBlock: { (receivedSize, totalSize) -> () in
             progressBlockIsCalled = true
             }) { (image, error, cacheType, imageURL) -> () in
                 expectation.fulfill()
@@ -103,7 +103,7 @@ class UIButtonExtensionTests: XCTestCase {
                 XCTAssert(image != nil, "Downloaded image should exist.")
                 XCTAssert(image! == testImage, "Downloaded image should be the same as test image.")
                 XCTAssert(self.button.backgroundImage(for: .normal)! == testImage, "Downloaded image should be already set to the image for state")
-                XCTAssert(self.button.kf_backgroundWebURL(for: .normal) == imageURL, "Web URL should equal to the downloaded url.")
+                XCTAssert(self.button.kf.backgroundWebURL(for: .normal) == imageURL, "Web URL should equal to the downloaded url.")
                 XCTAssert(cacheType == .none, "cacheType should be .None since the image was just downloaded.")
 
         }
@@ -117,16 +117,16 @@ class UIButtonExtensionTests: XCTestCase {
         let stub = stubRequest("GET", URLString).andReturn(200)?.withBody(testImageData)?.delay()
         let url = URL(string: URLString)!
 
-        button.kf_setImage(with: url, for: UIControlState.highlighted, placeholder: nil, options: nil, progressBlock: { (receivedSize, totalSize) -> () in
-                XCTFail("Progress block should not be called.")
+        button.kf.setImage(with: url, for: UIControlState.highlighted, placeholder: nil, options: nil, progressBlock: { (receivedSize, totalSize) -> () in
+                
             }) { (image, error, cacheType, imageURL) -> () in
                 XCTAssertNotNil(error)
                 XCTAssertEqual(error?.code, NSURLErrorCancelled)
 
                 expectation.fulfill()
         }
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(Double(NSEC_PER_SEC) * 0.1)) / Double(NSEC_PER_SEC)) { () -> Void in
-            self.button.kf_cancelImageDownloadTask()
+        delay(0.1) { 
+            self.button.kf.cancelImageDownloadTask()
             _ = stub!.go()
         }
 
@@ -140,7 +140,7 @@ class UIButtonExtensionTests: XCTestCase {
         let stub = stubRequest("GET", URLString).andReturn(200)?.withBody(testImageData)?.delay()
         let url = URL(string: URLString)!
         
-        button.kf_setBackgroundImage(with: url, for: UIControlState(), placeholder: nil, options: nil, progressBlock: { (receivedSize, totalSize) -> () in
+        button.kf.setBackgroundImage(with: url, for: UIControlState(), placeholder: nil, options: nil, progressBlock: { (receivedSize, totalSize) -> () in
             XCTFail("Progress block should not be called.")
             }) { (image, error, cacheType, imageURL) -> () in
                 XCTAssertNotNil(error)
@@ -148,8 +148,8 @@ class UIButtonExtensionTests: XCTestCase {
                 
                 expectation.fulfill()
         }
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(Double(NSEC_PER_SEC) * 0.1)) / Double(NSEC_PER_SEC)) { () -> Void in
-            self.button.kf_cancelBackgroundImageDownloadTask()
+        delay(0.1) { 
+            self.button.kf.cancelBackgroundImageDownloadTask()
             _ = stub!.go()
         }
         
@@ -160,7 +160,7 @@ class UIButtonExtensionTests: XCTestCase {
         let expectation = self.expectation(description: "wait for downloading image")
         
         let url: URL? = nil
-        button.kf_setBackgroundImage(with: url, for: UIControlState(), placeholder: nil, options: nil, progressBlock: { (receivedSize, totalSize) -> () in
+        button.kf.setBackgroundImage(with: url, for: UIControlState(), placeholder: nil, options: nil, progressBlock: { (receivedSize, totalSize) -> () in
             XCTFail("Progress block should not be called.")
         }) { (image, error, cacheType, imageURL) -> () in
             XCTAssertNil(image)

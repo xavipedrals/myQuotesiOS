@@ -27,6 +27,6 @@ class AuthorTableViewCell: UITableViewCell {
     func setAuthorPhoto(fromUrl: String) {
         authorPhoto.layer.cornerRadius = authorPhotoHeight.constant / 2
         authorPhoto.clipsToBounds = true
-        authorPhoto.kf_setImage(with: URL(string: fromUrl), placeholder: UIImage(named: "user-black-line"))
+        authorPhoto.kf.setImage(with: URL(string: fromUrl), placeholder: UIImage(named: "user-black-line"))
     }
 }
